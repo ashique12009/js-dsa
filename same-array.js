@@ -9,13 +9,16 @@ function same(arr1, arr2) {
 
     for (let index = 0; index < arr1.length; index++) {
         const elementAfterSquare = arr1[index] * arr1[index];
+        const currentIndex = arr2.indexOf(elementAfterSquare);
         
         if (arr2.indexOf(elementAfterSquare) === -1) {
             return false
         }
+
+        arr2.splice(currentIndex, 1)
     }
 
     return true
 }
 
-console.log(same([1, 2, 3], [1, 4, 9]))
+console.log(same([2, 3, 6], [4, 9, 36]));
