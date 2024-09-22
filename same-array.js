@@ -7,6 +7,10 @@ function same(arr1, arr2) {
         return false
     }
 
+    if (!arr1 instanceof Array || !arr2 instanceof Array) {
+        return false
+    }
+
     for (let index = 0; index < arr1.length; index++) {
         const elementAfterSquare = arr1[index] * arr1[index];
         const currentIndex = arr2.indexOf(elementAfterSquare);
