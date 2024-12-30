@@ -1,33 +1,29 @@
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
-
 class LinkedList {
     constructor() {
         this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+
+    isEmpty() {
+        return this.length === 0;
     }
 
     add(value) {
-        let newNode = new Node(value);
-        if (!this.head) {
-            this.head = newNode;
-        } else {
-            let current = this.head;
-            while (current.next) 
-                current = current.next;
-            current.next = newNode;
-        }
-    }
+        let newNode = {
+            value: value,
+            next: null
+        };
 
-    print() {
-        let current = this.head;
-        while (current) {
-            console.log(current.value);
-            current = current.next;
+        if (this.isEmpty()) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
         }
+
+        this.length++;
     }
 }
 
@@ -35,4 +31,6 @@ let list = new LinkedList();
 list.add(1);
 list.add(2);
 list.add(3);
-list.print(); // Output: 1 2 3
+list.add(4);
+console.log(list);
+//list.print(); // Output: 1 2 3
